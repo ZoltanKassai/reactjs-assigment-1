@@ -3,8 +3,8 @@ import React from "react";
 const userOutput = (props) => {
     return (
         <div className='UserOutput'>
-            <p>Username: {props.username}</p>
-            <p>Password: {props.password}</p>
+            <p onClick={props.click}>Username: {props.username}</p>
+            <p onClick={props.click}>Password: {props.password}</p>
         </div>
     )
 };

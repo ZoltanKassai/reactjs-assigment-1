@@ -13,9 +13,22 @@ class App extends Component {
     ]
   }
 
+  switchNameHandler = (newName) => {
+    //console.log('Was clicked');
+    this.setState( {
+      persons: [
+        {username: newName, password: 'Passgdrsgord'},
+        {username: 'Usasgzsver name2', password: 'Passdszgsword2'},
+        {username: 'User nzdrgsame3', password: 'Passwzdgfsbfdord3'}
+      ]
+    })
+  }
+
   userNameChangeHandler = (event) => {
     this.setState( {
       userState: [
+        {username: 'Useyxdfdxr name', password: 'Pasxdfsword'},
+        {username: 'Userxdfbdxbf name2', password: 'Pasdgfbfbsword2'},
         {username: event.target.value, password: 'Changed password'}
       ]
     })
@@ -31,18 +44,23 @@ class App extends Component {
           <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>
-        <UserInput/>
+        <UserInput
+          changed={this.userNameChangeHandler}
+        />
         <UserOutput
           username={this.state.userState[0].username}
           password={this.state.userState[0].password}
+          changed={this.userNameChangeHandler}
         />
         <UserOutput
           username={this.state.userState[1].username}
-          click={this.userNameChangeHandler.bind(this, 'Yoyya!')}
+          password={this.state.userState[1].password}
+          changed={this.userNameChangeHandler}
         />
         <UserOutput
+          username={this.state.userState[2].username}
           password={this.state.userState[2].password}
-          click={this.userNameChangeHandler.bind(this, 'Yoyya!')}
+          changed={this.userNameChangeHandler}
         />
       </div>
     );
