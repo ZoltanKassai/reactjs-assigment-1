@@ -13,12 +13,18 @@ class App extends Component {
     ]
   }
 
+  userNameChangeHandler = (event) => {
+    this.setState( {
+      userState: [
+        {username: event.target.value, password: 'Changed password'}
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <ol>
-          <li>Pass a username (of your choice) to UserOutput via props and display it there</li>
-          <li>Add state to the App component (=> the username) and pass the username to the UserOutput component</li>
           <li>Add a method to manipulate the state (=> an event-handler method)</li>
           <li>Pass the event-handler method reference to the UserInput component and bind it to the input-change event</li>
           <li>Ensure that the new input entered by the user overwrites the old username passed to UserOutput</li>
@@ -31,10 +37,12 @@ class App extends Component {
           password={this.state.userState[0].password}
         />
         <UserOutput
-          password={this.state.userState[1].password}
+          username={this.state.userState[1].username}
+          click={this.userNameChangeHandler.bind(this, 'Yoyya!')}
         />
         <UserOutput
-          username={this.state.userState[2].username}
+          password={this.state.userState[2].password}
+          click={this.userNameChangeHandler.bind(this, 'Yoyya!')}
         />
       </div>
     );
